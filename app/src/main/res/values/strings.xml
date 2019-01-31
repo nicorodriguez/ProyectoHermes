@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Hermes</string>
+    <string name="titulo">Hermes SS</string>
+    <string name="primerNumero">Primer Número</string>
+    <string name="segundoNumero">Segundo Número</string>
+    <string name="botonSumar">Sumar</string>
+    <string name="botonAcercaDeNosotros">Acerca de Nosotros</string>
+    <string name="resultado">Resultado</string>
+    <string name="botonAlarma">Alarmas</string>
+    <string name="botonLineas">Líneas</string>
+</resources>
