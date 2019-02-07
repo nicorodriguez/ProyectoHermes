@@ -1,6 +1,5 @@
 package com.example.nicolasrodriguez.hermes;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,14 +8,28 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
+public class Prueba extends AppCompatActivity {
 
     private EditText et1, et2;
     private TextView tv1;
     private Spinner sp1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_prueba);
+
+        et1 = (EditText)findViewById(R.id.txt_number1);
+        et2 = (EditText)findViewById(R.id.txt_number2);
+        tv1 = (TextView)findViewById(R.id.txt_resultado);
+        sp1 = (Spinner)findViewById(R.id.spinner);
+
+        String[] opciones = {"UNO", "DOS", "TRES"};
+
+        ArrayAdapter<String> adapatador = new ArrayAdapter<String>(this, R.layout.spinner_item_personalizado, opciones);
+        sp1.setAdapter(adapatador);
+    }
 
     public void Sumar(View view) {
         String valor1 = et1.getText().toString();
@@ -45,45 +58,6 @@ public class MainActivity extends AppCompatActivity {
             String result = String.valueOf(suma);
             tv1.setText(result);
         }
-    }
-
-    public void Alarmas(View view){
-        Intent alarmas = new Intent(this, Alarmas.class);
-        startActivity(alarmas);
-    }
-
-    public void LineasDeColectivo(View view){
-        Intent lineas = new Intent(this, LineasDeColectivo.class);
-        startActivity(lineas);
-    }
-
-//    public void AcercaDeNosotros(View view){
-//        Intent prueba = new Intent(this, Prueba.class);
-//        startActivity(prueba);
-//    }
-
-    public void Prueba(View view){
-        Intent prueba = new Intent(this, Prueba.class);
-        startActivity(prueba);
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
-
-        et1 = (EditText)findViewById(R.id.txt_number1);
-        et2 = (EditText)findViewById(R.id.txt_number2);
-        tv1 = (TextView)findViewById(R.id.txt_resultado);
-        sp1 = (Spinner)findViewById(R.id.spinner);
-
-        String[] opciones = {"UNO", "DOS", "TRES"};
-
-        ArrayAdapter<String> adapatador = new ArrayAdapter<String>(this, R.layout.spinner_item_personalizado, opciones);
-        sp1.setAdapter(adapatador);
     }
 
     @Override

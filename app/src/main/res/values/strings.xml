@@ -7,5 +7,9 @@
     <string name="botonAcercaDeNosotros">Acerca de Nosotros</string>
     <string name="resultado">Resultado</string>
     <string name="botonAlarma">Alarmas</string>
-    <string name="botonLineas">Líneas</string>
+    <string name="botonLineas">Líneas de Colectivo</string>
+    <string name="title_activity_alarmas">Alarmas</string>
+    <string name="title_activity_lineas_de_colectivo">Map</string>
+    <string name="itemMenuOverflow_1">Acerca de Nosotros</string>
+    <string name="itemMenuOverflow_2">Configuración</string>
 </resources>
