@@ -6,17 +6,25 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
+
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText et1, et2;
     private TextView tv1;
     private Spinner sp1;
+    private Button botonConexion;
 
     public void Sumar(View view) {
         String valor1 = et1.getText().toString();
@@ -84,6 +92,34 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapatador = new ArrayAdapter<String>(this, R.layout.spinner_item_personalizado, opciones);
         sp1.setAdapter(adapatador);
+
+        botonConexion = findViewById(R.id.button);
+
+        botonConexion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String webService = "";
+                Conexion conexion = new Conexion();
+
+                try {
+                    String respuesta = conexion.execute(webService).get();
+
+                    JSONArray jsonArray = new JSONArray(respuesta);
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+
+
+
+                } catch (JSONException e) {
+                        e.printStackTrace();
+                } catch (InterruptedException e){
+                    e.printStackTrace();
+                } catch (ExecutionException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+
     }
 
     @Override
